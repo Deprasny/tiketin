@@ -14,18 +14,34 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home')->middleware('admin');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');
 Route::put('/profile', 'ProfileController@update')->name('profile.update');
 
+Route::get('/station', function () {
+    return view('station.index');
+})->name('station.index')->middleware('admin');
+Route::get('/train', function () {
+    return view('train.index');
+})->name('train.index')->middleware('admin');
+Route::get('/passanger', function () {
+    return view('passanger.index');
+})->name('passanger.index')->middleware('admin');
+Route::get('/ticket', function () {
+    return view('ticket.index');
+})->name('ticket.index')->middleware('admin');
+
+Route::get('/buyticket', function () {
+    return view('buyticket.index');
+})->name('buyticket.index');
+Route::get('/user', function () {
+    return view('user_dashboard.index');
+})->name('user.index');
+
 Route::get('/about', function () {
     return view('about');
-})->name('about');
-
-Route::get('/blank', function () {
-    return view('blank');
-})->name('blank');
+})->name('about')->middleware('admin');

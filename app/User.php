@@ -45,4 +45,13 @@ class User extends Authenticatable
 
         return "{$this->name} {$this->last_name}";
     }
+
+    public function passanger()
+    {
+        return $this->hasMany('App\Passanger');
+    }
+    public function ticket()
+    {
+        return $this->hasMany('App\Ticket');
+    }
 }

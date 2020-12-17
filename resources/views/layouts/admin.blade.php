@@ -4,8 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Laravel SB Admin 2">
-    <meta name="author" content="Alejandro RH">
+    <meta name="description" content="Ticket">
+    <meta name="author" content="Deprasny">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -18,6 +18,9 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
+    @livewireStyles
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
 
     <!-- Favicon -->
     <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/png">
@@ -32,9 +35,9 @@
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('home') }}">
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
+                <i class="fas fa-edit"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+            <div class="sidebar-brand-text mx-3">Ticketin</div>
         </a>
 
         <!-- Divider -->
@@ -63,19 +66,50 @@
             </a>
         </li>
 
-        <!-- Nav Item - About -->
-        <li class="nav-item {{ Nav::isRoute('about') }}">
-            <a class="nav-link" href="{{ route('about') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('About') }}</span>
+        <!-- Nav Item - station -->
+        <li class="nav-item {{ Nav::isRoute('station.index') }}">
+            <a class="nav-link" href="{{ route('station.index') }}">
+                <i class="fas fa-fw fa-edit"></i>
+                <span>{{ __('Station') }}</span>
             </a>
         </li>
 
+        <!-- Nav Item - Train -->
+        <li class="nav-item {{ Nav::isRoute('train.index') }}">
+            <a class="nav-link" href="{{ route('train.index') }}">
+                <i class="fas fa-fw fa-edit"></i>
+                <span>{{ __('Train') }}</span>
+            </a>
+        </li>
+
+        <!-- Nav Item - Passanger -->
+        <li class="nav-item {{ Nav::isRoute('passanger.index') }}">
+            <a class="nav-link" href="{{ route('passanger.index') }}">
+                <i class="fas fa-fw fa-edit"></i>
+                <span>{{ __('Passanger') }}</span>
+            </a>
+        </li>
+
+        <!-- Nav Item - ticket -->
+        <li class="nav-item {{ Nav::isRoute('ticket.index') }}">
+            <a class="nav-link" href="{{ route('ticket.index') }}">
+                <i class="fas fa-fw fa-edit"></i>
+                <span>{{ __('Ticket') }}</span>
+            </a>
+        </li>
+
+         <!-- Nav Item - BUy ticket -->
+         <li class="nav-item {{ Nav::isRoute('buyticket.index') }}">
+            <a class="nav-link" href="{{ route('buyticket.index') }}">
+                <i class="fas fa-fw fa-edit"></i>
+                <span>{{ __('Buy Ticket') }}</span>
+            </a>
+        </li>
         <!-- Nav Item - About -->
-        <li class="nav-item {{ Nav::isRoute('blank') }}">
-            <a class="nav-link" href="{{ route('blank') }}">
-                <i class="fas fa-fw fa-book"></i>
-                <span>{{ __('Blank Page') }}</span>
+        <li class="nav-item {{ Nav::isRoute('about') }}">
+            <a class="nav-link" href="{{ route('about') }}">
+                <i class="fas fa-fw fa-edit"></i>
+                <span>{{ __('About') }}</span>
             </a>
         </li>
 
@@ -104,7 +138,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
 
-                <!-- Topbar Search -->
+                {{-- <!-- Topbar Search -->
                 <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                     <div class="input-group">
                         <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
@@ -114,12 +148,12 @@
                             </button>
                         </div>
                     </div>
-                </form>
+                </form> --}}
 
                 <!-- Topbar Navbar -->
                 <ul class="navbar-nav ml-auto">
 
-                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                    {{-- <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                     <li class="nav-item dropdown no-arrow d-sm-none">
                         <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-search fa-fw"></i>
@@ -242,7 +276,7 @@
                             </a>
                             <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
                         </div>
-                    </li>
+                    </li> --}}
 
                     <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -257,14 +291,6 @@
                             <a class="dropdown-item" href="{{ route('profile') }}">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 {{ __('Profile') }}
-                            </a>
-                            <a class="dropdown-item" href="javascript:void(0)">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                {{ __('Settings') }}
-                            </a>
-                            <a class="dropdown-item" href="javascript:void(0)">
-                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                {{ __('Activity Log') }}
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
@@ -294,7 +320,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Alejandro RH 2020</span>
+                    <span>Copyright &copy; Kelompok G</span>
                 </div>
             </div>
         </footer>
@@ -333,9 +359,18 @@
 </div>
 
 <!-- Scripts -->
+
 <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
 <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
 <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+@livewireScripts
+
+<!-- Select2 -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+@stack('scripts')
+
+
+
 </body>
 </html>

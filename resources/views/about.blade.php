@@ -3,71 +3,57 @@
 @section('main-content')
     <!-- Page Heading -->
     <h1 class="h3 mb-4 text-gray-800">{{ __('About') }}</h1>
-
-    <div class="row justify-content-center">
-
-        <div class="col-lg-8">
-
-            <div class="card shadow mb-4">
-
-                <div class="card-profile-image mt-4">
-                    <img src="{{ asset('img/favicon.png') }}" class="rounded-circle" alt="user-image">
-                </div>
-
+    <div class="container">
+        <div class="card-deck">
+            <div class="card">
+                <img src="{{ asset('img/suganda.jpeg') }}" style="display: block;
+        width: 100%;
+        height: auto;" class="card-img-top" alt="...">
                 <div class="card-body">
-
-                    <div class="row">
-                        <div class="col-lg-12 mb-1">
-                            <div class="text-center">
-                                <h5 class="font-weight-bold">Alejandro RH</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-md-4 mb-1 text-center">
-                            <a href="https://facebook.com/aleckrh" target="_blank" class="btn btn-facebook btn-circle btn-lg"><i class="fab fa-facebook-f fa-fw"></i></a>
-                        </div>
-                        <div class="col-md-4 mb-1 text-center">
-                            <a href="https://github.com/aleckrh" target="_blank" class="btn btn-github btn-circle btn-lg"><i class="fab fa-github fa-fw"></i></a>
-                        </div>
-                        <div class="col-md-4 mb-1 text-center">
-                            <a href="https://twitter.com/aleckrh" target="_blank" class="btn btn-twitter btn-circle btn-lg"><i class="fab fa-twitter fa-fw"></i></a>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h5 class="font-weight-bold">Laravel SB Admin 2</h5>
-                            <p>SB Admin 2 for Laravel.</p>
-                            <p>Recommend to install this preset on a project that you are starting from scratch, otherwise your project's design might break.</p>
-                            <a href="https://github.com/aleckrh/laravel-sb-admin-2" target="_blank" class="btn btn-github">
-                                <i class="fab fa-github fa-fw"></i> Go to repository
-                            </a>
-                        </div>
-                    </div>
-
-                    <hr>
-
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <h5 class="font-weight-bold">Credits</h5>
-                            <p>Laravel SB Admin 2 uses some open-source third-party libraries/packages, many thanks to the web community.</p>
-                            <ul>
-                                <li><a href="https://laravel.com" target="_blank">Laravel</a> - Open source framework.</li>
-                                <li><a href="https://github.com/DevMarketer/LaravelEasyNav" target="_blank">LaravelEasyNav</a> - Making managing navigation in Laravel easy.</li>
-                                <li><a href="https://startbootstrap.com/themes/sb-admin-2" target="_blank">SB Admin 2</a> - Thanks to Start Bootstrap.</li>
-                            </ul>
-                        </div>
-                    </div>
-
+                    <h5 class="card-title">Suganda Saefuloh </h5>
+                    <p class="card-text">18402098 <br>SISTEM INFORMASI <br>ILMU TEKNOLOGI DAN KOMPUTER <br>POLITEKNIK PIKSI GANESHA</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                 </div>
             </div>
-
+            <div class="card">
+                <img src="{{ asset('img/depras.jpeg') }}" style="display: block;
+        width: 100%;
+        height: auto;" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Depras Nur Yadi </h5>
+                    <p class="card-text">18402075 <br>SISTEM INFORMASI <br>ILMU TEKNOLOGI DAN KOMPUTER <br>POLITEKNIK PIKSI GANESHA</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{{ asset('img/riki.jpeg') }}" style="display: block;
+        width: 100%;
+        height: auto;" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">Ricky Aprian Nugrah </h5>
+                    <p class="card-text">18402084 <br>SISTEM INFORMASI <br>ILMU TEKNOLOGI DAN KOMPUTER <br>POLITEKNIK PIKSI GANESHA</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
         </div>
-
+        <h4 align="center" class="card-title pt-5">Moch Rizki Saepuloh S., S.Tr.T., M.I.KOM </h4>
+        <h4 align="center" class="card-title pt-5">(Dosen Mata Kuliah) </h4>
     </div>
-
 @endsection
+
+@push('notif')
+@if (session('success'))
+<div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
+    {{ session('success') }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+@endif
+
+@if (session('status'))
+    <div class="alert alert-success border-left-success" role="alert">
+        {{ session('status') }}
+    </div>
+@endif
+@endpush
